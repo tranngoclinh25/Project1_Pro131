@@ -1,0 +1,62 @@
+﻿@model ASM.ModelViews.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Đăng ký tài khoản";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="main-content">
+    <div class="login-register-area section-space-y-axis-100" style="background-image:url(/assets/images/banner/3.jpg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 pt-10 pt-lg-0" style="margin-left:300px">
+                    <form asp-action="DangkyTaiKhoan">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="login-form">
+                            <h4 class="login-title text-center" >Đăng ký tài khoản</h4>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>Họ và Tên</label>
+                                    <input type="text" asp-for="FullName" placeholder="Họ và Tên">
+                                    <span asp-validation-for="FullName" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-12">
+                                    <label>Địa chỉ Email</label>
+                                    <input type="email" asp-for="Email" placeholder="Địa chỉ Email">
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-12">
+                                    <label>Số điện thoại</label>
+                                    <input type="tel" asp-for="Phone" placeholder="Số điện thoại">
+                                    <span asp-validation-for="Phone" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-12">
+                                    <label>Địa chỉ </label>
+                                    <input type="text" asp-for="Adress" placeholder="Địa chỉ ">
+                                    <span asp-validation-for="Adress" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Mật khẩu</label>
+                                    <input type="password" asp-for="Password" placeholder="Mật khẩu">
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Nhập lại mật khẩu</label>
+                                    <input type="password" asp-for="ConfirmPassword" placeholder="Nhập lại mật khẩu">
+                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button class="btn btn-custom-size lg-size btn-secondary btn-primary-hover rounded-0">Đăng ký</button>
+                                </div>
+                                <br />
+                                <br />
+                                <br />
+                                <a asp-controller="Accounts" asp-action="Login" class="text-center text-info">Bạn đã có tài khoản?</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

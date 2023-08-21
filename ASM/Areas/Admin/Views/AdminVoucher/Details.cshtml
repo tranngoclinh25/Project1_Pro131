@@ -1,0 +1,72 @@
+﻿@model ASM.Models.Voucher
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="AdminHome" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a asp-action="Index" class="breadcrumb-item">Quản lý voucher</a>
+            <span class="breadcrumb-item active">Chi tiết mã giảm giá</span>
+        </nav>
+    </div>
+</div>
+<div>
+    <h4>Voucher</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Tên chương trình
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VoucherName)
+        </dd>
+        <dt class="col-sm-2">
+            Mã
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VoucherCode)
+        </dd>
+        <dt class="col-sm-2">
+            Ngày bắt đầu áp dụng
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+        <dt class="col-sm-2">
+            Ngày hết hạn áp dụng
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ExpirationDate)
+        </dd>
+        <dt class="col-sm-2">
+            Giá trị giảm
+        </dt>
+        @if (Model.VoucherType == 1)
+        {
+            <dd class="col-sm-10">@Model.DiscountValue %</dd>
+        }
+        else
+        {
+            <dd class="col-sm-10">@Model.DiscountValue.ToString("#,##0") VNĐ</dd>
+        }
+        <dt class="col-sm-2">
+            Kiểu giảm giá
+        </dt>
+        <dd class="col-sm-10">
+            @(Model.VoucherType == 1 ? "Giảm theo phần trăm" : "Giảm trực tiếp")
+        </dd>
+        <dt class="col-sm-2">
+            Số lượng mã còn lại
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.VoucherId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

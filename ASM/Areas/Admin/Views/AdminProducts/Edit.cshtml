@@ -1,0 +1,198 @@
+﻿@model ASM.Models.Product
+
+@{ ViewData["Title"] = "Chỉnh sửa sản phẩm :" + Model.ProductName;
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml"; }
+@section Styles{
+    <link href="~/Adminassets/summernote/summernote-bs4.css" rel="stylesheet" />
+    <link href="~/Adminassets/summernote/summernote.css" rel="stylesheet" />
+}
+
+<form asp-controller="AdminProducts" asp-action="Edit" asp-route-id="@Model.ProductId" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="ProductId" />
+    <input type="hidden" asp-for="Img" />
+    <input type="hidden" asp-for="CreateDate" />
+    <div class="page-header no-gutters has-tab">
+        <div class="d-md-flex m-b-15 align-items-center justify-content-between">
+            <div class="media align-items-center m-b-15">
+                <div class="avatar avatar-image rounded" style="height:70px; width:70px">
+                    <img width="120" height="120" src="~/images/products/@Model.Img" />
+                </div>
+                <div class="m-l-15">
+                    <h4 class="m-b-0">@Model.ProductName</h4>
+                    <p class="text-muted m-b-0">ID: #@Model.ProductId</p>
+                </div>
+            </div>
+            <div class="m-b-15">
+                <button class="btn btn-primary">
+                    <i class="anticon anticon-save"></i>
+                    <span>Lưu </span>
+                </button>
+            </div>
+        </div>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#product-edit-basic">Thông tin cơ bản</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#product-edit-option">Ảnh</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#product-edit-description">Mô tả sản phẩm</a>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-content m-t-15">
+        <div class="tab-pane fade show active" id="product-edit-basic">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="font-weight-semibold" for="productName">Tên sản phẩm</label>
+                            <input type="text" class="form-control" asp-for="ProductName">
+                            <span asp-validation-for="ProductName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="font-weight-semibold" for="productSize">Nhân vật</label>
+                            <input type="text" class="form-control" asp-for="Title">
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label class="font-weight-semibold" for="productColors">Series</label>
+                            <input type="text" class="form-control" asp-for="MetaDesc">
+                            <span asp-validation-for="MetaDesc" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="font-weight-semibold" for="productFit">Hãng sản xuất</label>
+                            <input type="text" class="form-control" asp-for="MetaKey">
+                            <span asp-validation-for="MetaKey" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="font-weight-semibold" for="productFit">Kích thước</label>
+                            <input type="text" class="form-control" asp-for="Tags">
+                            <span asp-validation-for="Tags" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label class="font-weight-semibold" for="productPrice">Giá bán</label>
+                            <input type="text" class="form-control" asp-for="Price">
+                            <span asp-validation-for="Price" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="font-weight-semibold" for="productPrice">Giá giảm</label>
+                            <input type="text" class="form-control" asp-for="Discount">
+                            <span asp-validation-for="Discount" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label class="font-weight-semibold" for="productCategory">Danh mục sản phẩm</label>
+                            <select class="custom-select" asp-for="CateId" style="min-width: 200px;" asp-items="ViewBag.DanhMuc">
+                                <option value="" disabled selected>Chọn danh mục</option>
+                            </select>
+                            <span asp-validation-for="CateId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-6">
+                            <label class="font-weight-semibold" for="productName">Hàng tồn kho</label>
+                            <input type="text" class="form-control" asp-for="SoLuongConLai">
+                            <span asp-validation-for="SoLuongConLai" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="m-t-25">
+                            @if (Model.Active == true)
+                            {
+                                <div class="form-group d-flex align-items-center">
+                                    <div class="switch m-r-10">
+                                        <input type="checkbox" asp-for="Active" checked="">
+                                        <label for="Active"></label>
+                                    </div>
+                                    <label>Còn bán</label>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="form-group d-flex align-items-center">
+                                    <div class="switch m-r-10">
+                                        <input type="checkbox" asp-for="Active" >
+                                        <label for="Active"></label>
+                                    </div>
+                                    <label>Ngừng bán</label>
+                                </div>
+                            }
+                          
+                            <div class="form-group d-flex align-items-center">
+                                <div class="switch m-r-10">
+                                    <input type="checkbox" asp-for="HomeFlag">
+                                    <label for="HomeFlag"></label>
+                                </div>
+                                <label>Hiển thị trang chủ</label>
+                            </div>
+                            @* <div class="form-group d-flex align-items-center">
+                            <div class="switch m-r-10">
+                            <input type="checkbox" asp-for="BestSellers">
+                            <label for="BestSellers"></label>
+                            </div>
+                            <label>BestSellers</label>
+                            </div>*@
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="product-edit-option">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label class="font-weight-semibold" for="productBrand">Ảnh đại diện</label>
+                        <input name="fThumb" type="file" class="form-control-file" asp-for="Img" />
+                        <span asp-validation-for="Img" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="product-edit-description">
+            <div class="card" >
+                <div class="card-body">
+                    <label class="font-weight-semibold" for="productBrand">Mô tả</label>
+                    <input type="text" class="form-control" asp-for="Description">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="~/Adminassets/vendors/select2/select2.min.js"></script>
+    <script src="~/Adminassets/js/pages/e-commerce-product-edit.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="~/Adminassets/summernote/summernote-bs4.js"></script>
+    <script src="~/Adminassets/vendors/quill/quill.min.js"></script>
+
+    <script>
+        new Quill('#editor', {
+            theme: 'snow'
+        });
+        jQuery(document).ready(function () {
+            $('.summernote').summernote({
+                fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+                styleTags: ['p', 'h1', 'h2', 'h3', 'h4', 'h5'],
+                height: 200,
+                minHeight: null,
+                maxHeight: null,
+                focus: true
+            });
+        });</script>
+}
+
+

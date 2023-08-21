@@ -1,0 +1,118 @@
+﻿@model IEnumerable<ASM.Models.ProductImage>
+
+@{
+    ViewData["Title"] = "Quản lý ảnh sản phẩm";
+    Product product = ViewBag.Product;
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";    
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a asp-area="Admin" asp-controller="AdminProducts" asp-action="Index" class="breadcrumb-item">Danh sách sản phẩm</a>
+            <a class="breadcrumb-item active">Quản lý ảnh sản phẩm</a>
+        </nav>
+    </div>
+</div>
+<div class="d-md-flex m-b-15 align-items-center justify-content-between">
+    <div class="media align-items-center m-b-15">
+        <div class="avatar avatar-image rounded" style="height:70px; width:70px">
+            <img width="120" height="120" src="~/images/products/@product.Img" />
+        </div>
+        <div class="m-l-15">
+            <h4 class="m-b-0">@product.ProductName</h4>
+            <p class="text-muted m-b-0">ID: #@product.ProductId</p>
+        </div>
+    </div>
+    <div class="m-b-15">
+        <input id="fThumb" type="file" class="form-control-file" />
+        <button id="btnUpload" class="btn btn-primary">
+            <i class="anticon anticon-save"></i>
+            <span>Thêm ảnh</span>
+        </button>
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table table-hover e-commerce-table">
+        <thead>
+            <tr>
+
+                <th>STT</th>
+                <th>Ảnh</th>
+                <th>Trạng thái</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody id="records_table">
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    var index = Model.ToList().FindIndex(p => p.ProductImageId == item.ProductImageId) + 1;
+                    <tr>
+                        <td>
+                            @index
+                        </td>
+                        <td>
+                            <img width="100" height="70" src="~/images/products/@item.ImageUrl" />
+                        </td>
+                        <td>
+                            @if (item.IsImage)
+                            {
+                                <div class="d-flex align-items-center">
+                                    <div class="badge badge-success badge-dot m-r-10"></div>
+                                    <div>Ảnh chính</div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="d-flex align-items-center">
+                                    <div class="badge badge-danger badge-dot m-r-10"></div>
+                                    <div>Ảnh phụ</div>
+                                </div>
+                            }
+                        </td>
+                        <td class="text-left">
+                            @if (item.IsImage == false)
+                            {
+                                <a class="anticon anticon-delete" asp-area="Admin" asp-controller="AdminProductImages" asp-action="Delete" asp-route-id="@item.ProductImageId" asp-route-productId="@product.ProductId"></a>
+                            }
+                        </td>
+
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#btnUpload').click(function () {
+            var productId = "@product.ProductId";
+            var fileInput = $('#fThumb')[0];
+            var file = fileInput.files[0];
+            console.log(productId);
+            console.log(file);
+            var formData = new FormData();
+            formData.append('productId', productId);
+            formData.append('fThumb', file);
+            
+            $.ajax({
+                url: '/Admin/AdminProductImages/AddImage',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (result) {
+                    location.reload();
+                    console.log(result);
+                },
+                error: function (xhr, status, error) {
+                    console.log(error);
+                }
+            });
+        });
+    });
+</script>

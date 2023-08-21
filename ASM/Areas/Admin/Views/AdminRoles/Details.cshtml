@@ -1,0 +1,43 @@
+﻿@model ASM.Models.Role
+
+@{
+    ViewData["Title"] = "Thông tin";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <span class="breadcrumb-item" href="#">Quản lý hệ thống</span>
+            <a class="breadcrumb-item active" asp-area="Admin" asp-controller="AdminRoles" asp-action="Index">Quản lý quyền truy cập</a>
+            <span asp-area="Admin" asp-controller="Home" class="breadcrumb-item">Chi tiết</span>
+
+        </nav>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Thông tin</h4>
+        <div class="table-responsive">
+            <table class="product-info-table m-t-20">
+                <tbody>
+                    <tr>
+                        <td>ID:</td>
+                        <td class="text-dark font-weight-semibold">@Model.RoleId</td>
+                    </tr>
+                    <tr>
+                        <td>Name:</td>
+                        <td>@Model.RoleName</td>
+                    </tr>
+                    <tr>
+                        <td>Mô tả:</td>
+                        <td>@Model.RoleDescription</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <a asp-action="Edit" asp-route-id="@Model.RoleId"class="btn btn-primary btn-tone m-r-5">Edit</a> 
+        <a asp-action="Index"class="btn btn-secondary btn-tone m-r-5">Back to List</a>
+    </div>
+</div>
+
+

@@ -1,0 +1,34 @@
+﻿@model ASM.Models.Role
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <span class="breadcrumb-item" href="#">Quản lý hệ thống</span>
+            <a class="breadcrumb-item active" asp-area="Admin" asp-controller="AdminRoles" asp-action="Index">Quản lý quyền truy cập</a>
+            <span asp-area="Admin" asp-controller="Home" class="breadcrumb-item">Thêm mới</span>
+
+        </nav>
+    </div>
+</div>
+<form asp-action="Create"  method="post">
+    <h4 class="card-title">Thông tin</h4>
+
+   
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>Name</label>
+            <input type="text" class="form-control" asp-for="RoleName">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Mô tả</label>
+            <input type="text" class="form-control" asp-for="RoleDescription">
+        </div>
+    </div>
+    <a class="btn btn-primary" asp-action="Index">Cancel</a>
+    <input type="submit" value="Thêm" class="btn btn-primary" />
+</form>

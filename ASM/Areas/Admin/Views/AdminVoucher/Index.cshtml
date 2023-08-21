@@ -1,0 +1,97 @@
+﻿@model IEnumerable<ASM.Models.Voucher>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="AdminHome" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Trang chủ</a>
+            <a class="breadcrumb-item active" href="#">Quản lý voucher</a>
+        </nav>
+    </div>
+</div>
+<div class="row m-b-30">
+    <div class="col-lg text-right">
+        <a class="btn btn-primary" asp-area="Admin" asp-controller="AdminVoucher" asp-action="Create"><i class="anticon anticon-plus-circle m-r-5"></i><span>Thêm mới</span></a>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tên chương trình
+            </th>
+            <th>
+                Mã
+            </th>
+            <th>
+                Giá trị giảm giá
+            </th>
+            <th>
+                Ngày bắt đầu
+            </th>
+            <th>
+                Ngày hết hạn
+            </th>
+            <th>
+                Kiểu giảm giá
+            </th>
+            <th>
+                Số lượng
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VoucherName)
+                </td>
+                <td class="text-success">
+                    @Html.DisplayFor(modelItem => item.VoucherCode)
+                </td>
+                @if (item.VoucherType == 1)
+                {
+                    <td>@item.DiscountValue %</td>
+                }
+                else
+                {
+                    <td>@item.DiscountValue.ToString("#,##0") VNĐ</td>
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExpirationDate)
+                </td>
+                <td class="text-danger">
+                    @(item.VoucherType == 1 ? "Giảm theo phần trăm" : "Giảm trực tiếp")
+                </td>
+                <td>
+                    @if (item.Quantity > 0)
+                    {
+                        <div class="d-flex align-items-center">
+                            <div class="badge badge-success badge-dot m-r-10"></div>
+                            <div>Còn mã</div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="d-flex align-items-center">
+                            <div class="badge badge-danger badge-dot m-r-10"></div>
+                            <div>Hết mã</div>
+                        </div>
+                    }
+                </td>
+                <td class="text-left">
+                    <a class="fas fa-eye" asp-area="Admin" asp-controller="AdminVoucher" asp-action="Details" asp-route-id="@item.VoucherId"></a>
+                    <a class="anticon anticon-edit" asp-area="Admin" asp-controller="AdminVoucher" asp-action="Edit" asp-route-id="@item.VoucherId"></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,377 @@
+﻿@model ASM.ModelViews.HomeViewVM
+@{
+    ViewData["Title"] = "Trang chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<Product> allProduct = ViewBag.AllProducts;
+}
+
+<!-- Begin Slider Area -->
+<div class="slider-area">
+
+    <!-- Main Slider -->
+    <div class="swiper-container main-slider swiper-arrow with-bg_white">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide animation-style-01">
+                <div class="slide-inner bg-height" data-bg-image="/assets/images/slider/inner-img/Panner.webp">
+                    <div class="parallax-img-wrap">
+                        <div class="chilly">
+                            <div class="scene fill">
+                                @*  <div class="expand-width" data-depth="0.2">
+                                <img src="~/assets/images/slider/inner-img/1-1-231x210.webp" />
+                                </div>*@
+                            </div>
+                        </div>
+                        <div class="avocado">
+                            <div class="scene fill">
+                                @* <div class="expand-width" data-depth="0.5">
+                                <img src="~/assets/images/slider/inner-img/1-2-224x204.webp" />
+                                </div>*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="parallax-with-content">
+                            <div class="slide-content">
+                                @*                                <span class="sub-title mb-3">Babi & Bu Shop</span>
+                                *@@*                                <h2 class="title mb-9">Hân hạnh được phục vụ</h2>
+                                *@
+                               @* <div class="button-wrap">
+                                    <a class="btn btn-custom-size lg-size btn-primary btn-white-hover rounded-0" href="shop.html">Mua ngay</a>
+                                </div>*@
+                            </div>
+                            <div class="parallax-img-wrap">
+                                <div class="tomatoes">
+                                    <div class="scene fill">
+                                        @* <div class="expand-width" data-depth="0.5">
+                                        <img src="~/assets/images/slider/inner-img/cachua.webp" />
+                                        </div>*@
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide animation-style-01">
+                <div class="slide-inner bg-height" data-bg-image="/assets/images/slider/inner-img/panner2.webp">
+                    <div class="parallax-img-wrap">
+                        <div class="chilly">
+                            <div class="scene fill">
+                                @*  <div class="expand-width" data-depth="0.2">
+                                <img src="~/assets/images/slider/inner-img/1-1-231x210.webp" />
+                                </div>*@
+                            </div>
+                        </div>
+                        <div class="avocado">
+                            <div class="scene fill">
+                                @* <div class="expand-width" data-depth="0.5">
+                                <img src="~/assets/images/slider/inner-img/1-2-224x204.webp" />
+                                </div>*@
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="parallax-with-content">
+                            <div class="slide-content">
+                                @*                                <span class="sub-title mb-3">Natural & Organic</span>
+                                *@@*                                <h2 class="title mb-9">Hân hạnh được phục vụ</h2>
+                                *@    
+                                @*<div class="button-wrap">
+                                    <a class="btn btn-custom-size lg-size btn-primary btn-white-hover rounded-0" href="shop.html">Mua ngay</a>
+                                </div>*@
+                            </div>
+                            <div class="parallax-img-wrap">
+                                <div class="tomatoes">
+                                    <div class="scene fill">
+                                        @*   <div class="expand-width" data-depth="0.5">
+                                        <img src="~/assets/images/slider/inner-img/cachua.webp" />
+                                        </div>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination with-bg d-md-none">
+        </div>
+
+        <!-- Add Arrows -->
+        <div class="swiper-button-next">
+        </div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+</div>
+<!-- Slider Area End Here -->
+<section class="section-index-bannerlink">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-6">
+                <div class="thumbnail">
+                    <div class="col-inner position-relative ">
+                        <a href="#">
+                            <img class="lazyloaded img-response" data-src="//theme.hstatic.net/1000160337/1000885200/14/categorybanner_1_img.jpg?v=311" src="//theme.hstatic.net/1000160337/1000885200/14/categorybanner_1_img.jpg?v=311" alt="Nendoroid">
+                        </a>
+                        <div class="tag-sale z-1 position-absolute">
+                            <p class="tagline">Bộ sưu tập</p>
+                            <h2 class="htitle">Nendoroid</h2>
+                            <p class="txtdesc">Dòng chibi figure được yêu thích nhất, <br> nhiều gương mặt, thoả sức tạo dáng</p>
+                            <p class="action">
+                                <a class=" btn btn-danger btn-dark-hover" href="shop.html">Xem ngay <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-6">
+                <div class="thumbnail">
+                    <div class="col-inner position-relative ">
+                        <a href="#">
+                            <img class=" lazyloaded" data-src="//theme.hstatic.net/1000160337/1000885200/14/categorybanner_2_img.jpg?v=311" src="//theme.hstatic.net/1000160337/1000885200/14/categorybanner_2_img.jpg?v=311" alt="Pop Up Parade">
+                        </a>
+                        <div class="tag-sale z-1 position-absolute">
+                            <p class="tagline">Bộ sưu tập</p>
+                            <h2 class="htitle">Nendoroid</h2>
+                            <p class="txtdesc"><p class="txtdesc">
+                                Dòng scale figure kích thước sinh viên,<br />
+                                giá tiểu học
+                            </p>
+
+                            <p class="action">
+                                <a class="btn btn-danger btn-dark-hover" href="shop.html">Xem ngay <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="banner-area banner-style-2 section-space-y-axis-90" data-bg-image="/assets/images/banner/21613.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="parallax-img-wrap">
+                    <div class="papaya">
+                        <div class="scene fill" style="transform: translate3d(0px, 0px, 0px) rotate(0.0001deg); transform-style: preserve-3d; backface-visibility: hidden; position: relative; pointer-events: none;">
+                            <div class="expand-width" data-depth="0.8" style="transform: translate3d(-10.8px, 8.2px, 0px); transform-style: preserve-3d; backface-visibility: hidden; position: relative; display: block; left: 0px; top: 0px;">
+                                <img src="~/assets/images/banner/inner-img/uji_kimetsu_no_yaiba_-_katana_o_furui_kokoro_o_moyase_-_last_one_ver.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="banner-content">
+                    <div class="section-title">
+                        <br />
+                        <br />
+
+                        <h3 class="title font-size-35 mb-7 text-danger">Giảm giá các loại trong tháng 9</h3>
+                    </div>
+
+                    <div class="countdown-wrap with-dark-border">
+                        <div class="countdown item-4" data-countdown="2023/09/01" data-format="short">
+                            <div class="countdown__item me-3">
+                                <span class="countdown__time daysLeft"></span>
+                                <span class="countdown__text ">Ngày</span>
+                            </div>
+                            <div class="countdown__item me-3">
+                                <span class="countdown__time hoursLeft"></span>
+                                <span class="countdown__text ">Giờ</span>
+                            </div>
+                            <div class="countdown__item me-3">
+                                <span class="countdown__time minsLeft"></span>
+                                <span class="countdown__text ">Phút</span>
+                            </div>
+                            <div class="countdown__item">
+                                <span class="countdown__time secsLeft"></span>
+                                <span class="countdown__text">Giây</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-wrap pt-10">
+                        <a class="btn btn-custom-size lg-size btn-danger btn-dark-hover rounded-0" href="shop.html">Mua hàng ngay</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Begin Shipping Area -->
+<div class="shipping-area section-space-top-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="shipping-item">
+                    <div class="shipping-img">
+                        <img src="~/assets/images/shipping/icon/icons8-bank-cards-50.png" />
+                    </div>
+                    <div class="shipping-content">
+                        <h5 class="title">Thanh toán  </h5>
+                        <p class="short-desc mb-0">Chuyển khoản hoặc COD</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="shipping-item">
+                    <div class="shipping-img">
+                        <img src="~/assets/images/shipping/icon/icons8-delivery-50.png" />
+                    </div>
+                    <div class="shipping-content">
+                        <h5 class="title">Giao hàng miễn phí</h5>
+                        <p class="short-desc mb-0">Với đơn hàng từ 500k</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 pt-6 pt-md-0">
+                <div class="shipping-item">
+                    <div class="shipping-img">
+                        <img src="~/assets/images/shipping/icon/icons8-headset-50.png" />
+                    </div>
+                    <div class="shipping-content">
+                        <h5 class="title">Hotline hỗ trợ 24/7</h5>
+                        <p class="short-desc mb-0">Hotline: <strong>0345.00.22.81</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 pt-6 pt-lg-0">
+                <div class="shipping-item">
+                    <div class="shipping-img">
+                        <img src="~/assets/images/shipping/icon/icons8-time-50.png" />
+                    </div>
+                    <div class="shipping-content">
+                        <h5 class="title">Giờ làm việc</h5>
+                        <p class="short-desc mb-0">Từ 6h00 - 19h30 hàng ngày</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Shipping Area End Here -->
+
+<!-- Begin Product Area -->
+<div class="product-area section-space-top-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="nav product-tab-nav pb-10" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="active" id="all-items-tab" data-bs-toggle="tab" href="#all-items" role="tab" aria-controls="all-items" aria-selected="true">
+                            <div class="product-tab-icon">
+                                <img src="/assets/images/product/icon/icons8-all-64.png" alt="Product Icon" style="width:100px;height:100px">
+                            </div>
+                            <div class="avatar avatar-icon">
+                                <i class="anticon anticon-user"></i>
+                            </div>
+
+                            Tất cả sản phẩm
+                        </a>
+                    </li>
+                    @foreach (var item in Model.products)
+                    {
+                        <li class="nav-item" role="presentation">
+                            <a id="fresh-fruits-tab" data-bs-toggle="tab" href="#@item.category.Alias" role="tab" aria-controls="fresh-fruits" aria-selected="false">
+                                <div class="product-tab-icon">
+                                    <img style="width:100px;height:100px" src="~/images/category/@item.category.Img" alt="@item.category.Title">
+                                </div>
+                                @item.category.CateName
+                            </a>
+                        </li>
+                    }
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="section-title text-center pb-55">
+
+                        <h2>Danh sách sản phẩm</h2>
+                    </div>
+                    <div class="tab-pane fade show active" id="all-items" role="tabpanel" aria-labelledby="all-items-tab">
+                        @await Html.PartialAsync("_ListProductPartialView", allProduct)
+                    </div>
+                    @foreach (var item in Model.products)
+                    {
+                        <div class="tab-pane fade" id="@item.category.Alias" role="tabpanel" aria-labelledby="fresh-fruits-tab">
+                            @await Html.PartialAsync("_ListProductPartialView", item.lstProducts)
+                        </div>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Product Area End Here -->
+
+<!-- Begin Blog Area -->
+@if (Model.posts != null && Model.posts.Count() > 0)
+{
+    <div class="blog-area section-space-y-axis-100">
+        <div class="container">
+            <div class="section-title text-center pb-55">
+                
+                <h2>Dành cho người mới bắt đầu</h2>
+                <span class="sub-title text-primary">
+                    Hướng dẫn cơ bản
+                </span>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="swiper-container blog-slider">
+                        <div class="swiper-wrapper">
+                            @foreach (var item in Model.posts)
+                            {
+                                string url = $"/tin-tuc/{item.Alias}-{item.PostId}.html";
+                                <div class="swiper-slide">
+                                    <div class="blog-item">
+                                        <div class="blog-img img-zoom-effect">
+                                            <a href="@url">
+                                                <img width="200" height="200" class="img-full" src="~/images/news/@item.Img" alt="@item.Title">
+                                            </a>
+                                        </div>
+                                        <div class="blog-content">
+                                            <div class="blog-meta text-dim-gray pb-3">
+                                                <ul>
+                                                    <li class="date"><i class="fa fa-calendar-o me-2"></i>@item.CreateData</li>
+                                                    <li>
+                                                        <span class="comments me-3">
+                                                            <a href="javascript:void(0)">55 Comments</a>
+                                                        </span>
+                                                     
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <h5 class="title mb-4">
+                                                <a href="@url">@item.Title</a>
+                                            </h5>
+                                            <p class="short-desc mb-5">@item.ShortContents</p>
+                                            <div class="button-wrap">
+                                                <a class="btn btn-custom-size btn-dark btn-lg rounded-0" href="@url">Đọc thêm</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+
+                        </div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script src="~/assets/js/main.js"></script>
